@@ -1,7 +1,7 @@
 {
-  "name": "thesportsdb-api",
+  "name": "sports-broadcast-api",
   "version": "1.0.0",
-  "description": "API REST empacotando TheSportsDB e adicionando dados de transmissão de TV",
+  "description": "API REST para consulta de eventos esportivos e canais de transmissão de TV (Brasil e Internacional) com dados de apoio do TheSportsDB e web discovery.",
   "main": "src/server.js",
   "type": "module",
   "scripts": {

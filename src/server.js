@@ -25,11 +25,17 @@ app.use(cors());
 app.use(express.json());
 app.use(rateLimiter);
 
-// Documentação simples na raiz
+// Documentação e Atribuição na raiz
 app.get('/', (req, res) => {
   res.json({
-    message: 'Bem-vindo à API TheSportsDB + TV Broadcast',
+    name: 'Sports Broadcast API',
+    description: 'API independente para consulta de eventos esportivos e canais de transmissão de TV no Brasil e no mundo.',
     version: '1.0.0',
+    attribution: {
+      sportsData: 'Esta aplicação utiliza dados esportivos públicos fornecidos de forma independente por TheSportsDB (https://www.thesportsdb.com).',
+      broadcastDiscovery: 'Mecanismo próprio de busca web e mapeamento de direitos de transmissão esportiva no Brasil.',
+      disclaimer: 'Sports Broadcast API é um projeto independente e não possui afiliação, patrocínio ou endosso oficial de TheSportsDB ou das emissoras de TV citadas.'
+    },
     endpoints: {
       sports: '/api/sports',
       countries: '/api/sports/countries',
@@ -102,7 +108,7 @@ app.use((req, res, next) => {
 app.use(errorHandler);
 
 app.listen(PORT, () => {
-  console.log(`\x1b[32m[Servidor]\x1b[0m Iniciado na porta \x1b[36m${PORT}\x1b[0m`);
+  console.log(`\x1b[32m[Servidor]\x1b[0m Sports Broadcast API iniciada na porta \x1b[36m${PORT}\x1b[0m`);
   console.log(`\x1b[33m[Acesso]\x1b[0m http://localhost:${PORT}`);
   console.log(`\x1b[35m[Info]\x1b[0m Rotas mapeadas sob /api`);
 });

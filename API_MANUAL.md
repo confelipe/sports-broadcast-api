@@ -1,6 +1,14 @@
-# 📖 Manual de Uso da API TheSportsDB + Transmissão de TV (Brasil)
+# 📖 Manual de Uso da Sports Broadcast API
 
-Guia completo e prático com exemplos de chamadas para todos os endpoints da API desenvolvida em Node.js / Express.
+Guia completo e prático com exemplos de chamadas para todos os endpoints da **Sports Broadcast API** (Node.js / Express).
+
+---
+
+> [!NOTE]
+> ### ⚖️ Atribuição e Isenção de Responsabilidade (Disclaimer)
+> - **Fonte de Dados Esportivos:** Esta API utiliza dados esportivos públicos fornecidos de forma independente por [TheSportsDB.com](https://www.thesportsdb.com).
+> - **Descoberta de Transmissão:** O enriquecimento de dados de canais de TV e streaming no Brasil é realizado através de algoritmo próprio de busca web e mapeamento de direitos de transmissão.
+> - **Independência:** Este projeto é independente e **não** possui vínculo, patrocínio ou afiliação oficial com TheSportsDB ou com qualquer uma das emissoras e serviços de streaming citados.
 
 ---
 
@@ -38,10 +46,10 @@ npm start
 
 ## 1. 🏆 Destaque: Transmissão de TV (Brasil)
 
-Estes endpoints combinam dados esportivos do TheSportsDB com enriquecimento web automático para trazer os canais de transmissão brasileiros (Globo, SporTV, Premiere, ESPN, Disney+, Max, etc.).
+Estes endpoints combinam dados de eventos com o motor de descoberta de canais para trazer onde assistir no Brasil (Globo, SporTV, Premiere, ESPN, Disney+, Paramount+, Max, CazéTV, etc.).
 
 ### 1.1 Detalhes de Transmissão de um Jogo Específico
-Retorna dados da partida, canais internacionais cadastrados e canais do Brasil identificados via web scraping.
+Retorna dados da partida, canais internacionais cadastrados e canais do Brasil identificados.
 
 * **Método:** `GET`
 * **Rota:** `/api/tv/match/:eventId`
@@ -74,11 +82,17 @@ console.log('Canais BR:', data.tvBrasil.channels);
   "internationalTv": [],
   "tvBrasil": {
     "channels": [
-      "ESPN",
-      "Disney+"
+      "ESPN"
     ],
-    "source": "Google Search Web Scraper",
-    "query": "Independiente Rivadavia vs Fluminense 2026-08-18 onde assistir canal Copa Libertadores",
+    "detalheTransmissao": "Identificado em matérias recentes de transmissão",
+    "direitosOficiaisCompeticao": [
+      "ESPN",
+      "Disney+",
+      "Paramount+",
+      "Globo"
+    ],
+    "source": "Bing Search Snippet Parser",
+    "query": "\"Independiente Rivadavia\" \"Fluminense\" onde assistir canal transmissão",
     "searchUrl": "https://www.google.com/search?q=Independiente%20Rivadavia%20vs%20Fluminense%202026-08-18%20onde%20assistir%20canal%20Copa%20Libertadores&hl=pt-BR"
   }
 }
